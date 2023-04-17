@@ -1,30 +1,27 @@
-import { useEffect, useState } from "react";
-import { fetchAllPost } from "../API/api";
-
+import { Routes, Route, Link } from "react-router-dom";
+import { RegisterForm } from "../components/RegisterForm";
+import AllPosts from "../components/AllPosts";
+import "./App.css";
+import { useState } from "react";
 function App() {
-  const [data, setData] = useState([]);
-
-  async function getPost() {
-    const postList = await fetchAllPost();
-    setData(postList.data.posts);
-  }
-  useEffect(() => {
-    getPost();
-  }, []);
-
+  const [token, setToken] = useState(localStorage.getItem("token"));
   return (
     <div className="App">
-      <h1>Hello</h1>
-      {data.length > 0 &&
-        data.map((data) => {
-          return (
-            <div key={data.author.username}>
-              <h1>{data.price}</h1>
-              <h2>{data.author.username}</h2>
-            </div>
-          );
-        })}
+      <h1>
+        <nav>
+          <Link to="/">All Posts </Link>
+          <Link to="/users/register"> Register</Link>
+        </nav>
+      </h1>
+      <Routes>
+        <Route path="/" element={<AllPosts />} />
+        <Route
+          path="/users/register"
+          element={<RegisterForm setToken={setToken} />}
+        />
+      </Routes>
     </div>
   );
 }
+
 export default App;
