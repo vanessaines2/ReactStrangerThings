@@ -1,9 +1,9 @@
 const COHORT_NAME = "2301-FTB-ET-WEB-AM";
-const BASE_URL = `https://strangers-things.herokuapp.com/api/${COHORT_NAME}/posts`;
+const BASE_URL = `https://strangers-things.herokuapp.com/api/${COHORT_NAME}`;
 
 export async function fetchAllPost() {
   try {
-    const response = await fetch(`${BASE_URL}`);
+    const response = await fetch(`${BASE_URL}/posts`);
     const result = await response.json();
     console.log(result);
     return result;
@@ -11,6 +11,7 @@ export async function fetchAllPost() {
     console.error(error);
   }
 }
+
 export async function registerUser(username, password) {
   try {
     const response = await fetch(`${BASE_URL}/users/register`, {
@@ -30,5 +31,6 @@ export async function registerUser(username, password) {
     return result;
   } catch (error) {
     console.log("error from register user api", error);
+    throw error;
   }
 }

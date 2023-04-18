@@ -8,7 +8,7 @@ function App() {
   return (
     <div className="App">
       <h1>
-        <nav>
+        <nav className="navbar">
           <Link to="/">All Posts </Link>
           <Link to="/users/register"> Register</Link>
         </nav>

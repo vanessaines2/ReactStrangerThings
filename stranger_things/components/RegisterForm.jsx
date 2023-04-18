@@ -5,14 +5,14 @@ import { registerUser } from "../API/api";
 export function RegisterForm({ setToken }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
 
   async function handleSubmit(e) {
     e.preventDefault();
     try {
       const result = await registerUser(username, password);
-      console.log("results from handlesubmit", result);
-      // setToken(result.data.token);
-      // localStorage.setItem("token", result.data.token);
+      setToken(result.data.token);
+      localStorage.setItem("token", result.data.token);
     } catch (error) {
       console.log("error from register form token", error);
     }
@@ -24,20 +24,21 @@ export function RegisterForm({ setToken }) {
           type="text"
           name="username"
           placeholder="username"
+          value={username}
           onChange={(e) => {
-            console.log(e.target.value);
             setUsername(e.target.value);
           }}
         />
         <input
-          type="text"
+          type="password"
           name="password"
           placeholder="password"
+          value={password}
           onChange={(e) => {
-            console.log(e.target.value);
             setPassword(e.target.value);
           }}
         />
+        {error && <p>{error}</p>}
         <button>Submit!</button>
       </form>
     </div>
