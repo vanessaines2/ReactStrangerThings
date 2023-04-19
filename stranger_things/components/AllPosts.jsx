@@ -8,9 +8,11 @@ export default function AllPosts() {
     const postList = await fetchAllPost();
     setData(postList.data.posts);
   }
+
   useEffect(() => {
     getPost();
   }, []);
+
   return (
     <div>
       {data.length > 0 &&

@@ -27,10 +27,9 @@ export async function registerUser(username, password) {
       }),
     });
     const result = await response.json();
-    console.log("Result from register user", result);
+    console.log(result);
     return result;
   } catch (error) {
-    console.log("error from register user api", error);
-    throw error;
+    console.log(error);
   }
 }

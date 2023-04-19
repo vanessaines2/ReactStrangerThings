@@ -1,24 +1,24 @@
 import { Routes, Route, Link } from "react-router-dom";
-import { RegisterForm } from "../components/RegisterForm";
+import LogInForm from "../components/LogInForm";
 import AllPosts from "../components/AllPosts";
-import "./App.css";
 import { useState } from "react";
+import "./App.css";
+
 function App() {
-  const [token, setToken] = useState(localStorage.getItem("token"));
   return (
-    <div className="App">
-      <h1>
-        <nav className="navbar">
-          <Link to="/">All Posts </Link>
-          <Link to="/users/register"> Register</Link>
-        </nav>
-      </h1>
+    <div className="app">
+      <header className="head">
+        <h2>Stranger Things</h2>
+        <h3 className="links">
+          <Link to="/">HOME</Link>
+          <Link to="/posts">POSTS</Link>
+          <Link to="/users">LOGIN</Link>
+        </h3>
+      </header>
+
       <Routes>
-        <Route path="/" element={<AllPosts />} />
-        <Route
-          path="/users/register"
-          element={<RegisterForm setToken={setToken} />}
-        />
+        <Route path="/posts" element={<AllPosts />} />
+        <Route path="/users" element={<LogInForm />} />
       </Routes>
     </div>
   );
