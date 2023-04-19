@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { registerUser } from "../API/api";
 
-export default function LogInForm() {
+export default function RegisterForm() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
@@ -10,10 +10,13 @@ export default function LogInForm() {
     try {
       const result = await registerUser(username, password);
       console.log("Result in Component: ", result);
+      setUsername("");
+      setPassword("");
     } catch (error) {
       console.log(error);
     }
   }
+  
   return (
     <div className="login-container">
       <h1 className="title">Register</h1>
