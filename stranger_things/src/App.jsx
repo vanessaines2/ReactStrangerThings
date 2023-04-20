@@ -4,9 +4,12 @@ import AllPosts from "../components/AllPosts";
 import { useState } from "react";
 import "./App.css";
 import { LoginForm } from "../components/LoginForm";
+import { useAuth } from "../hooks/useAuth";
 
 function App() {
-  const [token, setToken] = useState(localStorage.getItem("token"));
+  const { token, user } = useAuth();
+  console.log("token from app", token);
+  console.log("user from app", user);
   return (
     <div className="app">
       <header className="head">
@@ -19,12 +22,10 @@ function App() {
       </header>
 
       <Routes>
-        <Route path="/" element={<LoginForm setToken={setToken} />} />
+        <Route path="/" element={<LoginForm />} />
         <Route path="/posts" element={<AllPosts />} />
-        <Route
-          path="/users/register"
-          element={<RegisterForm setToken={setToken} />}
-        />
+        <Route path="/users/register" element={<RegisterForm />} />
+        <Route path="/users/me" element={<AllPosts />} />
       </Routes>
     </div>
   );

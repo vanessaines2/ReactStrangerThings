@@ -1,15 +1,23 @@
 import { useState, useEffect } from "react";
-import { fetchAllPost } from "../API/api";
+import { fetchAllPost, fetchAuthenticatedPosts } from "../API/api";
+import { useAuth } from "../hooks/useAuth";
 
 export default function AllPosts() {
   const [data, setData] = useState([]);
 
-  async function getPost() {
-    const postList = await fetchAllPost();
-    setData(postList.data.posts);
-  }
+  const { token } = useAuth();
 
   useEffect(() => {
+    async function getPost() {
+      if (token === true) {
+        const authPostList = await fetchAuthenticatedPosts(token);
+        setData(authPostList.data.posts);
+        console.log(setData);
+      } else {
+        const postList = await fetchAllPost();
+        setData(postList.data.posts);
+      }
+    }
     getPost();
   }, []);
 
@@ -22,6 +30,7 @@ export default function AllPosts() {
               <h1>username:{data.author.username}</h1>
               <h2>Title :{data.title}</h2>
               <p> {data.description}</p>
+              <h5>Price: {data.price}</h5>
             </div>
           );
         })}
