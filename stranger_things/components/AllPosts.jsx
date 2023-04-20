@@ -9,10 +9,10 @@ export default function AllPosts() {
 
   useEffect(() => {
     async function getPost() {
-      if (token === true) {
+      if (token) {
         const authPostList = await fetchAuthenticatedPosts(token);
         setData(authPostList.data.posts);
-        console.log(setData);
+        console.log(setData(authPostList.data.posts));
       } else {
         const postList = await fetchAllPost();
         setData(postList.data.posts);
