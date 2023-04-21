@@ -4,7 +4,7 @@ import { useAuth } from "../hooks/useAuth";
 
 function Profile() {
   const { token } = useAuth();
-  const [user, setUser] = useState({});
+  const [user, setUser] = useState([]);
   console.log("user from profile", user);
   useEffect(() => {
     async function getProfile() {
@@ -13,10 +13,6 @@ function Profile() {
     }
     getProfile();
   }, [token]);
-  return (
-    <div>
-      <h1>que lo que </h1>
-    </div>
-  );
+  return <div></div>;
 }
 export default Profile;

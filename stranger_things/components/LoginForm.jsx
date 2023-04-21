@@ -50,7 +50,8 @@ export function LoginForm() {
             placeholder="Enter your password"
             onChange={(e) => setPassword(e.target.value)}
           />
-          <button className="button">Submit</button>
+          <button className="button">Login</button>
+
           <p className="signup-link">
             Don't have an account?
             <Link to="/users/register"> Sign up!</Link>

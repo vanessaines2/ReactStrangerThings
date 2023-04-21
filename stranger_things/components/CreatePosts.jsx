@@ -2,7 +2,6 @@ import { useState } from "react";
 import React from "react";
 import { createPost } from "../API/api";
 import { useAuth } from "../hooks/useAuth";
-import { Link } from "react-router-dom";
 
 export default function CreatePost() {
   const [title, setTitle] = useState("");
