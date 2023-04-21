@@ -5,6 +5,7 @@ import { useState } from "react";
 import "./App.css";
 import { LoginForm } from "../components/LoginForm";
 import { useAuth } from "../hooks/useAuth";
+import CreatePost from "../components/CreatePosts";
 
 function App() {
   const { token, user } = useAuth();
@@ -17,6 +18,7 @@ function App() {
         <h3 className="links">
           <Link to="/">HOME</Link>
           <Link to="/posts">POSTS</Link>
+          <Link to="/create-posts">CREATE POSTS</Link>
           <Link to="/users/register">REGISTER</Link>
         </h3>
       </header>
@@ -26,6 +28,7 @@ function App() {
         <Route path="/posts" element={<AllPosts />} />
         <Route path="/users/register" element={<RegisterForm />} />
         <Route path="/users/me" element={<AllPosts />} />
+        <Route path="/create-posts" element={<CreatePost />} />
       </Routes>
     </div>
   );
