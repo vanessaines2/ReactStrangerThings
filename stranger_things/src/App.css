@@ -11,7 +11,7 @@
   padding: 50px;
 }
 
-body{
+body {
   background-color: #f2f2f2;
 }
 
@@ -82,4 +82,10 @@ body{
 
 .button:hover {
   background-color: #555;
+}
+.allPosts {
+  display: flex;
+  flex-direction: column;
+  align-content: space-around;
+  gap: 15px;
 }

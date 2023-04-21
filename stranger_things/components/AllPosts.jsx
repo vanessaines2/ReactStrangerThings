@@ -22,11 +22,11 @@ export default function AllPosts() {
   }, []);
 
   return (
-    <div>
+    <div className="allPosts">
       {data.length > 0 &&
         data.map((data) => {
           return (
-            <div key={data.author.username}>
+            <div key={data.author.id}>
               <h1>username:{data.author.username}</h1>
               <h2>Title :{data.title}</h2>
               <p> {data.description}</p>

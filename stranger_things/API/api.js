@@ -98,6 +98,7 @@ export async function createPost(title, description, price, token) {
           title,
           description,
           price,
+          willDeliver,
         },
       }),
     });
