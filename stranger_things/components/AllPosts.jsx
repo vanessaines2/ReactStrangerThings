@@ -43,6 +43,7 @@ export default function AllPosts() {
               </button>
               <button>Message</button>
               <button>Edit </button>
+              <button>test</button>
             </div>
           );
         })}
