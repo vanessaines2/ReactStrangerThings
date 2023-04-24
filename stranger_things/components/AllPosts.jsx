@@ -42,6 +42,7 @@ export default function AllPosts() {
                 Delete Post
               </button>
               <button>Message</button>
+              <button>Edit </button>
             </div>
           );
         })}
