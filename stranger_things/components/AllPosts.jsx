@@ -24,23 +24,24 @@ export default function AllPosts() {
   return (
     <div className="allPosts">
       {data.length > 0 &&
-        data.map((data) => {
+        data.map((posts) => {
           return (
-            <div key={data.author.id}>
-              <h1>username:{data.author.username}</h1>
-              <h2>Title :{data.title}</h2>
-              <p> {data.description}</p>
-              <h5>Price: {data.price}</h5>
+            <div key={posts._id}>
+              <h1>username:{posts.author.username}</h1>
+              <h2>Title :{posts.title}</h2>
+              <p> {posts.description}</p>
+              <h5>Price: {posts.price}</h5>
               <button
                 onClick={async (e) => {
                   e.preventDefault();
-                  await deletePosts(token, data._id);
+                  await deletePosts(token, posts._id);
                   console.log("ive been clicked");
                 }}
               >
                 {" "}
                 Delete Post
               </button>
+              <button>Message</button>
             </div>
           );
         })}
