@@ -13,6 +13,13 @@ function Profile() {
     }
     getProfile();
   }, [token]);
-  return <div></div>;
+  return (
+    <div>
+      {/* we may want the logout button to be in the nav bar only once youre logged in  */}
+      <h1>our messages</h1>
+      <h2>our posts </h2>
+      <h3>LogOut</h3>
+    </div>
+  );
 }
 export default Profile;

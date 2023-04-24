@@ -106,3 +106,20 @@ export async function createPost(title, description, price, token) {
     console.log(error);
   }
 }
+export async function deletePosts(token, postId) {
+  console.log("deletePosts", token);
+  try {
+    const response = await fetch(`${BASE_URL}/posts/${postId}`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    });
+    const result = await response.json();
+
+    return result;
+  } catch (err) {
+    console.error(err);
+  }
+}

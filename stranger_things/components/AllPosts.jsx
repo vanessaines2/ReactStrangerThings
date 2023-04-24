@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { fetchAllPost, fetchAuthenticatedPosts } from "../API/api";
+import { deletePosts, fetchAllPost, fetchAuthenticatedPosts } from "../API/api";
 import { useAuth } from "../hooks/useAuth";
 
 export default function AllPosts() {
@@ -31,6 +31,16 @@ export default function AllPosts() {
               <h2>Title :{data.title}</h2>
               <p> {data.description}</p>
               <h5>Price: {data.price}</h5>
+              <button
+                onClick={async (e) => {
+                  e.preventDefault();
+                  await deletePosts(token, data._id);
+                  console.log("ive been clicked");
+                }}
+              >
+                {" "}
+                Delete Post
+              </button>
             </div>
           );
         })}

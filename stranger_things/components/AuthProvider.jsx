@@ -2,6 +2,7 @@ import { createContext, useEffect, useState } from "react";
 import { fetchMe } from "../API/api";
 
 //create the content
+//i made token and user as a hook so
 export const AuthContext = createContext();
 
 const AuthProvider = ({ children }) => {

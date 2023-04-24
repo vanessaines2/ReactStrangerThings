@@ -3,6 +3,8 @@ import RegisterForm from "./RegisterForm";
 import { loginUser } from "../API/api";
 import { Link } from "react-router-dom";
 
+//this could probably be also register
+
 export function LoginForm() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");

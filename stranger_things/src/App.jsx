@@ -33,6 +33,7 @@ function App() {
         <Route path="/create-posts" element={<CreatePost />} />
         <Route path="/profile" element={<Profile />} />
       </Routes>
+      <footer>LOGOUT</footer>
     </div>
   );
 }
