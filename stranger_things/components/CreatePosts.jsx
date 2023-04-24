@@ -9,33 +9,37 @@ export default function CreatePost() {
   const [price, setPrice] = useState("");
   const { token } = useAuth();
   return (
-    <div>
-      <h1>Create Posts</h1>
+    <div className="create-post">
+      <h1 className="create-post-title">Create Posts</h1>
       <form
+        className="create-post-form"
         onSubmit={async (e) => {
           e.preventDefault();
           await createPost(title, description, price, token);
         }}
       >
-        <label>Title</label>
+        <label className="create-post-label">Title</label>
         <input
+          className="create-post-input"
           type="text"
           value={title}
           onChange={(event) => setTitle(event.target.value)}
         />
-        <label>Description:</label>
+        <label className="create-post-label">Description:</label>
         <input
+          className="create-post-input"
           type="text"
           value={description}
           onChange={(event) => setDescription(event.target.value)}
         />
-        <label>Price:</label>
+        <label className="create-post-label">Price:</label>
         <input
+          className="create-post-input"
           type="text"
           value={price}
           onChange={(event) => setPrice(event.target.value)}
         />
-        <button type="submit">Create Post</button>
+        <button className="create-post-button" type="submit">Create Post</button>
       </form>
     </div>
   );
