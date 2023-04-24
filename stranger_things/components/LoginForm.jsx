@@ -10,7 +10,7 @@ export function LoginForm() {
   const [password, setPassword] = useState("");
   const [token, setToken] = useState("");
 
-  async function handleSubmit() {
+  async function handleSubmit(e) {
     e.preventDefault();
     try {
       const result = await loginUser(username, password);
@@ -21,11 +21,17 @@ export function LoginForm() {
       console.log(error);
     }
   }
+
   return (
     <div>
       <div className="login-container">
         <h1 className="title">Login</h1>
-        <form className="login-form">
+        <form
+          onSubmit={(e) => {
+            handleSubmit(e);
+          }}
+          className="login-form"
+        >
           <label className="label" htmlFor="username">
             Username
           </label>
@@ -52,7 +58,9 @@ export function LoginForm() {
             placeholder="Enter your password"
             onChange={(e) => setPassword(e.target.value)}
           />
-          <button className="button">Login</button>
+          <button type="submit" className="button">
+            Login
+          </button>
 
           <p className="signup-link">
             Don't have an account?
