@@ -1,7 +1,7 @@
 import { useState } from "react";
 import RegisterForm from "./RegisterForm";
 import { loginUser } from "../API/api";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 //this could probably be also register
 
@@ -9,7 +9,7 @@ export function LoginForm() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [token, setToken] = useState("");
-
+  const navigate = useNavigate();
   async function handleSubmit(e) {
     e.preventDefault();
     try {
@@ -17,6 +17,7 @@ export function LoginForm() {
       console.log("Result in Component: ", result);
       setToken(result.data.token);
       localStorage.setItem("token", result.data.token);
+      navigate("/posts");
     } catch (error) {
       console.log(error);
     }

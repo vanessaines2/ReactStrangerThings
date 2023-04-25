@@ -23,11 +23,22 @@ export default function AllPosts() {
 
   return (
     <div className="create-post">
+      <form className="searchBar">
+        <input
+          id="search"
+          type="text"
+          className="input"
+          placeholder="search..."
+        />
+        <button type="submit">Search</button>
+      </form>
       {data.length > 0 &&
         data.map((posts) => {
           return (
-            <div className="post" key={posts.author.id}>
-              <h1 className="post-username">Username: {posts.author.username}</h1>
+            <div className="post" key={posts._id}>
+              <h1 className="post-username">
+                Username: {posts.author.username}
+              </h1>
               <h2 className="post-title">Title: {posts.title}</h2>
               <p className="post-description">{posts.description}</p>
               <h5 className="post-price">Price: {posts.price}</h5>
@@ -35,12 +46,14 @@ export default function AllPosts() {
                 className="post-delete-button"
                 onClick={async (e) => {
                   e.preventDefault();
-                  await deletePosts(token, data._id);
+                  await deletePosts(token, posts._id);
                   console.log("I've been clicked");
                 }}
               >
                 Delete Post
               </button>
+              {/* maybe an if statement, if its your post youre able to edit, else no */}
+              <button className="post-delete-button"> Edit Post</button>
             </div>
           );
         })}

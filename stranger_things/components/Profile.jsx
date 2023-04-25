@@ -1,11 +1,13 @@
 import { useEffect, useState } from "react";
 import { fetchMe } from "../API/api";
 import { useAuth } from "../hooks/useAuth";
+import { useNavigate } from "react-router-dom";
 
 function Profile() {
   const { token } = useAuth();
-  const [user, setUser] = useState([]);
-  console.log("user from profile", user);
+  const [user, setUser] = useState({});
+
+  console.log("user data from profile", user.data);
   useEffect(() => {
     async function getProfile() {
       const response = await fetchMe(token);
@@ -13,12 +15,19 @@ function Profile() {
     }
     getProfile();
   }, [token]);
+  function LogOut() {
+    console.log("logout button has been clicked");
+    localStorage.removeItem("token");
+  }
   return (
     <div>
-      {/* we may want the logout button to be in the nav bar only once youre logged in  */}
-      <h1>our messages</h1>
-      <h2>our posts- we can filter through all posts and display ours </h2>
-      <h3>LogOut</h3>
+      {console.log("user from profile")}
+      <h1>Hello - {}!</h1>
+      <h3>Our Posts - insert our posts here,</h3>
+      <h3>Our Messages </h3>
+      <button className="create-post-button" onClick={LogOut}>
+        Log Out
+      </button>
     </div>
   );
 }

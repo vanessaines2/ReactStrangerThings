@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { registerUser } from "../API/api";
 import { useAuth } from "../hooks/useAuth";
-
+import { Link } from "react-router-dom";
 export default function RegisterForm() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -49,6 +49,10 @@ export default function RegisterForm() {
           onChange={(e) => setPassword(e.target.value)}
         />
         <button className="button">Submit</button>
+        <p className="signup-link">
+          Have an account?
+          <Link to="/"> Login!</Link>
+        </p>
       </form>
     </div>
   );
