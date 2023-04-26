@@ -21,7 +21,7 @@ function App() {
           <Link to="/posts">POSTS</Link>
           <Link to="/create-posts">CREATE POSTS</Link>
           <Link to="/users/register">REGISTER</Link>
-          <Link to="/profile">PROFILE</Link>
+          <Link to="/users/me">PROFILE</Link>
         </h3>
       </header>
 
@@ -29,9 +29,9 @@ function App() {
         <Route path="/" element={<LoginForm />} />
         <Route path="/posts" element={<AllPosts />} />
         <Route path="/users/register" element={<RegisterForm />} />
-        <Route path="/users/me" element={<AllPosts />} />
+
         <Route path="/create-posts" element={<CreatePost />} />
-        <Route path="/profile" element={<Profile />} />
+        <Route path="/users/me" element={<Profile />} />
       </Routes>
       <footer>Footer maybe </footer>
     </div>

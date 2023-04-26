@@ -54,6 +54,7 @@ export default function AllPosts() {
               </button>
               {/* maybe an if statement, if its your post youre able to edit, else no */}
               <button className="post-delete-button"> Edit Post</button>
+              <button className="post-delete-button"> Message</button>
             </div>
           );
         })}

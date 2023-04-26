@@ -17,7 +17,7 @@ export function LoginForm() {
       console.log("Result in Component: ", result);
       setToken(result.data.token);
       localStorage.setItem("token", result.data.token);
-      navigate("/posts");
+      navigate("/users/me");
     } catch (error) {
       console.log(error);
     }
