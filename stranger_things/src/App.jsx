@@ -7,6 +7,7 @@ import { LoginForm } from "../components/LoginForm";
 import { useAuth } from "../hooks/useAuth";
 import CreatePost from "../components/CreatePosts";
 import Profile from "../components/Profile";
+import Message from "../components/Message";
 
 function App() {
   const { token, user } = useAuth();
@@ -29,11 +30,10 @@ function App() {
         <Route path="/" element={<LoginForm />} />
         <Route path="/posts" element={<AllPosts />} />
         <Route path="/users/register" element={<RegisterForm />} />
-
+        <Route path="/post/:postId/messages" element={<Message />} />
         <Route path="/create-posts" element={<CreatePost />} />
         <Route path="/users/me" element={<Profile />} />
       </Routes>
-      <footer>Footer maybe </footer>
     </div>
   );
 }

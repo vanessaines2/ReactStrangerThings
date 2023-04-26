@@ -1,24 +1,25 @@
 import { useState, useEffect } from "react";
 import { deletePosts, fetchAllPost, fetchAuthenticatedPosts } from "../API/api";
 import { useAuth } from "../hooks/useAuth";
+import { useNavigate } from "react-router-dom";
 
 export default function AllPosts() {
-  const [data, setData] = useState([]);
+  const [posts, setPosts] = useState([]);
 
-  const { token } = useAuth();
-
+  const { token, user } = useAuth();
+  const navigate = useNavigate();
   useEffect(() => {
-    async function getPost() {
+    async function getPosts() {
       if (token) {
         const authPostList = await fetchAuthenticatedPosts(token);
-        setData(authPostList.data.posts);
-        console.log(setData(authPostList.data.posts));
+        setPosts(authPostList.data.posts);
+        console.log(setPosts(authPostList.data.posts));
       } else {
         const postList = await fetchAllPost();
-        setData(postList.data.posts);
+        setPosts(postList.data.posts);
       }
     }
-    getPost();
+    getPosts();
   }, []);
 
   return (
@@ -32,29 +33,39 @@ export default function AllPosts() {
         />
         <button type="submit">Search</button>
       </form>
-      {data.length > 0 &&
-        data.map((posts) => {
+      {posts.length > 0 &&
+        posts.map((post) => {
           return (
-            <div className="post" key={posts._id}>
+            <div className="post" key={post._id}>
               <h1 className="post-username">
-                Username: {posts.author.username}
+                Username: {post.author.username}
               </h1>
-              <h2 className="post-title">Title: {posts.title}</h2>
-              <p className="post-description">{posts.description}</p>
-              <h5 className="post-price">Price: {posts.price}</h5>
-              <button
-                className="post-delete-button"
-                onClick={async (e) => {
-                  e.preventDefault();
-                  await deletePosts(token, posts._id);
-                  console.log("I've been clicked");
-                }}
-              >
-                Delete Post
-              </button>
+              <h2 className="post-title">Title: {post.title}</h2>
+              <p className="post-description">{post.description}</p>
+              <h5 className="post-price">Price: {post.price}</h5>
+              {user._id === post.author._id && (
+                <button
+                  className="post-delete-button"
+                  onClick={async (e) => {
+                    e.preventDefault();
+                    await deletePosts(token, post._id);
+                    console.log("I've been clicked");
+                  }}
+                >
+                  Delete Post
+                </button>
+              )}
               {/* maybe an if statement, if its your post youre able to edit, else no */}
               <button className="post-delete-button"> Edit Post</button>
-              <button className="post-delete-button"> Message</button>
+              <button
+                className="post-delete-button"
+                onClick={() => {
+                  navigate(`/post/${post._id}/messages`);
+                }}
+              >
+                {" "}
+                Message
+              </button>
             </div>
           );
         })}
