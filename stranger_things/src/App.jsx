@@ -17,13 +17,15 @@ function App() {
     <div className="app">
       <header className="head">
         <h2>STRANGER THINGS</h2>
-        <h3 className="links">
-          <Link to="/">HOME</Link>
-          <Link to="/posts">POSTS</Link>
-          <Link to="/create-posts">CREATE POSTS</Link>
-          <Link to="/users/register">REGISTER</Link>
-          <Link to="/users/me">PROFILE</Link>
-        </h3>
+        {token && (
+          <h3 className="links">
+            <Link to="/">HOME</Link>
+            <Link to="/posts">POSTS</Link>
+            <Link to="/create-posts">CREATE POSTS</Link>
+            <Link to="/users/register">REGISTER</Link>
+            <Link to="/users/me">PROFILE</Link>
+          </h3>
+        )}
       </header>
 
       <Routes>
