@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { registerUser } from "../API/api";
+
+import { registerUser } from "../API/registerUser";
 import { useAuth } from "../hooks/useAuth";
 import { Link } from "react-router-dom";
 export default function RegisterForm() {

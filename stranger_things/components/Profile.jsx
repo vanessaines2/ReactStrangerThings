@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { fetchMe } from "../API/api";
+import { fetchMe } from "../API/registerUser";
 import { useAuth } from "../hooks/useAuth";
 import { useNavigate } from "react-router-dom";
 

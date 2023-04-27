@@ -1,5 +1,5 @@
 import { createContext, useEffect, useState } from "react";
-import { fetchMe } from "../API/api";
+import { fetchMe } from "../API/registerUser";
 
 //create the content
 //i made token and user as a hook so

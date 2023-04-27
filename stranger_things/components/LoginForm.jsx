@@ -1,6 +1,6 @@
 import { useState } from "react";
 import RegisterForm from "./RegisterForm";
-import { loginUser } from "../API/api";
+import { loginUser } from "../API/registerUser";
 import { Link, useNavigate } from "react-router-dom";
 
 //this could probably be also register
