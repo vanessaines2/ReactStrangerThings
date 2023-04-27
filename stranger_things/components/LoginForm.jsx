@@ -65,7 +65,7 @@ export function LoginForm() {
 
           <p className="signup-link">
             Don't have an account?
-            <Link to="/users/register"> Sign up!</Link>
+            <Link to="/"> Sign up!</Link>
           </p>
         </form>
       </div>
