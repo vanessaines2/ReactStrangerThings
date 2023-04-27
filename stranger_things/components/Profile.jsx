@@ -16,7 +16,7 @@ function Profile() {
   }
   return (
     <div>
-      {console.log("user from profile")}
+      {console.log("user from profile", user.username)}
       <h1>Welcome - {token && `Welcome, ${user.username}`}</h1>
       <h3>Our Posts - insert our posts here,</h3>
       <h3>Our Messages </h3>
