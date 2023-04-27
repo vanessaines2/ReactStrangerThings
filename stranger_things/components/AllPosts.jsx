@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 
 export default function AllPosts() {
   const [posts, setPosts] = useState([]);
-
+  const [searchPost, setSearchPost] = useState("");
   const { token, user } = useAuth();
   const navigate = useNavigate();
   useEffect(() => {
@@ -22,6 +22,11 @@ export default function AllPosts() {
     getPosts();
   }, []);
 
+  // const filteredPosts = posts.filter((post) => {
+  //   return post.title.toLowerCase().includes(searchPost);
+  // });
+  // const postsToDisplay = searchPost ? { getPosts } : filteredPosts;
+
   return (
     <div className="create-post">
       <input
@@ -29,6 +34,10 @@ export default function AllPosts() {
         type="text"
         className="input"
         placeholder="search posts..."
+        onChange={(e) => {
+          setSearchPost(e.target.value);
+          console.log(e.target.value);
+        }}
       />
 
       {posts.length > 0 &&
