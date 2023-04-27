@@ -5,21 +5,37 @@ import { useNavigate } from "react-router-dom";
 
 function Profile() {
   const { token, user, setToken } = useAuth();
-
+  console.log("user from profile", user);
+  console.log("user messages", user.messages);
   const navigate = useNavigate();
+  const messages = user.messages || [];
 
   function LogOut() {
-    console.log("logout button has been clicked");
     setToken(null);
     localStorage.removeItem("token");
     navigate("/");
   }
+
   return (
     <div>
-      {console.log("user from profile", user.username)}
-      <h1>Welcome - {token && `Welcome, ${user.username}`}</h1>
-      <h3>Our Posts - insert our posts here,</h3>
-      <h3>Our Messages </h3>
+      <h1>{token && `Welcome, ${user.username}`}</h1>
+      <h3>My Messages</h3>
+      <div>
+        {messages.map((message) => {
+          return (
+            <div className="messages">
+              <h3>username: {message.fromUser.username}</h3>
+              <h4>message : {message.content}</h4>
+              <h5> posts: {message.post.title}</h5>
+            </div>
+          );
+        })}
+      </div>
+      <div>
+        <br></br>
+        <h3> My Posts</h3>
+      </div>
+
       <button className="create-post-button" onClick={LogOut}>
         Log Out
       </button>

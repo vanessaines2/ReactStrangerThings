@@ -21,12 +21,14 @@ export default function AllPosts() {
     }
     getPosts();
   }, []);
-
-  // const filteredPosts = posts.filter((post) => {
-  //   return post.title.toLowerCase().includes(searchPost);
-  // });
-  // const postsToDisplay = searchPost ? { getPosts } : filteredPosts;
-
+  // function postMatches(post, searchPost) {}
+  const filteredPosts = posts.filter((post) => {
+    return post.title.toLowerCase().includes(searchPost);
+  });
+  const postsToDisplay = searchPost ? posts : filteredPosts;
+  const allPostsToDisplay = postsToDisplay.map((post) => {
+    return post.title;
+  });
   return (
     <div className="create-post">
       <input
@@ -35,8 +37,8 @@ export default function AllPosts() {
         className="input"
         placeholder="search posts..."
         onChange={(e) => {
-          setSearchPost(e.target.value);
-          console.log(e.target.value);
+          setSearchPost(e.target.value.toLowerCase());
+          console.log(searchPost);
         }}
       />
 
@@ -62,8 +64,10 @@ export default function AllPosts() {
                   Delete Post
                 </button>
               )}
+              {user._id === post.author._id && (
+                <button className="post-delete-button"> Edit Post</button>
+              )}
 
-              {/* <button className="post-delete-button"> Edit Post</button> */}
               <button
                 className="post-delete-button"
                 onClick={() => {

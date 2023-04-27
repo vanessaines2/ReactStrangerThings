@@ -18,6 +18,7 @@ const AuthProvider = ({ children }) => {
       getMe();
     }
   }, [token]);
+
   const contextValue = {
     token,
     setToken,

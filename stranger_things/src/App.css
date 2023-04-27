@@ -196,3 +196,10 @@ body {
 .create-post-button:hover {
   background-color: #388e3c;
 }
+.messages {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid red;
+  gap: 10px;
+  align-content: stretch;
+}
