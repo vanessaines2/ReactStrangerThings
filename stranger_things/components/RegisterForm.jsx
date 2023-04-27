@@ -52,7 +52,7 @@ export default function RegisterForm() {
         <button className="button">Submit</button>
         <p className="signup-link">
           Have an account?
-          <Link to="/"> Login!</Link>
+          <Link to="/users/login"> Login!</Link>
         </p>
       </form>
     </div>

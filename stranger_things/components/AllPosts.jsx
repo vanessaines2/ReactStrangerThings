@@ -24,15 +24,13 @@ export default function AllPosts() {
 
   return (
     <div className="create-post">
-      <form className="searchBar">
-        <input
-          id="search"
-          type="text"
-          className="input"
-          placeholder="search..."
-        />
-        <button type="submit">Search</button>
-      </form>
+      <input
+        id="search"
+        type="text"
+        className="input"
+        placeholder="search posts..."
+      />
+
       {posts.length > 0 &&
         posts.map((post) => {
           return (
@@ -55,8 +53,8 @@ export default function AllPosts() {
                   Delete Post
                 </button>
               )}
-              {/* maybe an if statement, if its your post youre able to edit, else no */}
-              <button className="post-delete-button"> Edit Post</button>
+
+              {/* <button className="post-delete-button"> Edit Post</button> */}
               <button
                 className="post-delete-button"
                 onClick={() => {

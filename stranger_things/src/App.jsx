@@ -17,21 +17,22 @@ function App() {
     <div className="app">
       <header className="head">
         <h2>STRANGER THINGS</h2>
+        <h3 className="linkz">
+          <Link to="/"> HOME</Link>
+          <Link to="/posts">POSTS </Link>
+        </h3>
         {token && (
           <h3 className="links">
-            <Link to="/">HOME</Link>
-            <Link to="/posts">POSTS</Link>
-            <Link to="/create-posts">CREATE POSTS</Link>
-            <Link to="/users/register">REGISTER</Link>
-            <Link to="/users/me">PROFILE</Link>
+            <Link to="/create-posts"> CREATE POSTS </Link>
+            <Link to="/users/me"> PROFILE </Link>
           </h3>
         )}
       </header>
 
       <Routes>
-        <Route path="/" element={<LoginForm />} />
+        <Route path="/" element={<RegisterForm />} />
         <Route path="/posts" element={<AllPosts />} />
-        <Route path="/users/register" element={<RegisterForm />} />
+        <Route path="/users/login" element={<LoginForm />} />
         <Route path="/post/:postId/messages" element={<Message />} />
         <Route path="/create-posts" element={<CreatePost />} />
         <Route path="/users/me" element={<Profile />} />
