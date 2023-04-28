@@ -25,10 +25,9 @@ export default function AllPosts() {
   const filteredPosts = posts.filter((post) => {
     return post.title.toLowerCase().includes(searchPost);
   });
-  const postsToDisplay = searchPost ? posts : filteredPosts;
-  const allPostsToDisplay = postsToDisplay.map((post) => {
-    return post.title;
-  });
+  console.log(filteredPosts, "filtered posts ");
+  // if there is a search show filtered posts else show all
+
   return (
     <div className="create-post">
       <input
@@ -52,9 +51,10 @@ export default function AllPosts() {
               <h2 className="post-title">Title: {post.title}</h2>
               <p className="post-description">{post.description}</p>
               <h5 className="post-price">Price: {post.price}</h5>
+              {/* this will delete  only by author */}
               {user._id === post.author._id && (
                 <button
-                  className="post-delete-button"
+                  className="post-button"
                   onClick={async (e) => {
                     e.preventDefault();
                     await deletePosts(token, post._id);
@@ -64,19 +64,30 @@ export default function AllPosts() {
                   Delete Post
                 </button>
               )}
+              {/* this will edit only if its made by u */}
               {user._id === post.author._id && (
-                <button className="post-delete-button"> Edit Post</button>
+                <button
+                  className="post-button"
+                  onClick={() => {
+                    navigate(`/posts/${post._id}`);
+                  }}
+                >
+                  {" "}
+                  Edit Post
+                </button>
               )}
-
-              <button
-                className="post-delete-button"
-                onClick={() => {
-                  navigate(`/post/${post._id}/messages`);
-                }}
-              >
-                {" "}
-                Message
-              </button>
+              {/* only send a message if youre logged in */}
+              {token && (
+                <button
+                  className="post-button"
+                  onClick={() => {
+                    navigate(`/post/${post._id}/messages`);
+                  }}
+                >
+                  {" "}
+                  Message
+                </button>
+              )}
             </div>
           );
         })}

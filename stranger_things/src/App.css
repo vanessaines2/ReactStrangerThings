@@ -131,7 +131,7 @@ body {
   margin-bottom: 10px;
 }
 
-.post-delete-button {
+.post-button {
   background-color: #f44336;
   color: #fff;
   border: none;
@@ -141,7 +141,7 @@ body {
   cursor: pointer;
 }
 
-.post-delete-button:hover {
+.post-button:hover {
   background-color: #e53935;
 }
 

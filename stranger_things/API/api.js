@@ -49,6 +49,27 @@ export async function createPost(title, description, price, token) {
     console.log(error);
   }
 }
+export async function updatePosts(token, postId, title, description, price) {
+  try {
+    const response = await fetch(`${BASE_URL}/posts/${postId}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+      body: JSON.stringify({
+        post: {
+          title,
+          description,
+          price,
+        },
+      }),
+    });
+    const result = await response.json();
+  } catch (error) {
+    console.log("error in updated posts", error);
+  }
+}
 export async function deletePosts(token, postId) {
   console.log("deletePosts", token);
   try {

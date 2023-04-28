@@ -22,24 +22,3 @@ export async function postMessage(postId, token, messageContent) {
     console.log(error);
   }
 }
-export async function updatePosts(token, postId, title, description, price) {
-  try {
-    const response = await fetch(`${BASE_URL}/posts/${postId}`, {
-      method: "PATCH",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`,
-      },
-      body: JSON.stringify({
-        post: {
-          title,
-          description,
-          price,
-        },
-      }),
-    });
-    const result = await response.json();
-  } catch (error) {
-    console.log(error);
-  }
-}

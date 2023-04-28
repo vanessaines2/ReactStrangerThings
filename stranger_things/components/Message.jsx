@@ -2,6 +2,7 @@ import { useState } from "react";
 import { postMessage } from "../API/messages";
 import { useAuth } from "../hooks/useAuth";
 import { useParams } from "react-router-dom";
+
 export default function Message() {
   const { token } = useAuth();
   const { postId } = useParams();

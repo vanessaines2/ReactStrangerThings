@@ -8,6 +8,7 @@ import { useAuth } from "../hooks/useAuth";
 import CreatePost from "../components/CreatePosts";
 import Profile from "../components/Profile";
 import Message from "../components/Message";
+import { UpdatedPost } from "../../vg - extra credit /UpdatedPosts";
 
 function App() {
   const { token, user } = useAuth();
@@ -36,6 +37,7 @@ function App() {
         <Route path="/post/:postId/messages" element={<Message />} />
         <Route path="/create-posts" element={<CreatePost />} />
         <Route path="/users/me" element={<Profile />} />
+        <Route path="/posts/:postId" element={<UpdatedPost />} />
       </Routes>
     </div>
   );

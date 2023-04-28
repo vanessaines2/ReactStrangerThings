@@ -1,29 +1,25 @@
+import { updatePosts } from "../stranger_things/API/api";
 import { useState } from "react";
-import React from "react";
-import { createPost } from "../API/api";
-import { useAuth } from "../hooks/useAuth";
-import { useNavigate } from "react-router-dom";
-import AllPosts from "./AllPosts";
+import { useAuth } from "../stranger_things/hooks/useAuth";
+import { useParams } from "react-router-dom";
 
-export default function CreatePost() {
+export function UpdatedPost() {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [price, setPrice] = useState("");
-  const { token } = useAuth();
-  const navigate = useNavigate();
+  const { postId } = useParams();
+  const { token } = useAuth;
 
   return (
     <div className="create-post">
-      <h1 className="create-post-title">Create Posts</h1>
+      <h1> Edit Post</h1>
       <form
         className="create-post-form"
         onSubmit={async (e) => {
           e.preventDefault();
-          await createPost(title, description, price, token);
-          navigate("/posts");
+          await updatePosts(token, postId, title, description, price);
         }}
       >
-        <label className="create-post-label">Title</label>
         <input
           className="create-post-input"
           type="text"
@@ -45,7 +41,7 @@ export default function CreatePost() {
           onChange={(event) => setPrice(event.target.value)}
         />
         <button className="create-post-button" type="submit">
-          Create Post
+          Edit Post
         </button>
       </form>
     </div>

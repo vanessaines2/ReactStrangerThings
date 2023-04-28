@@ -10,6 +10,7 @@ export function LoginForm() {
   const [password, setPassword] = useState("");
   const [token, setToken] = useState("");
   const navigate = useNavigate();
+
   async function handleSubmit(e) {
     e.preventDefault();
     try {
