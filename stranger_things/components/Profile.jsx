@@ -19,6 +19,10 @@ function Profile() {
   return (
     <div>
       <h1>{token && `Welcome, ${user.username}`}</h1>
+      <h4>
+        - pls note you may have to refresh when you login & when you delete,
+        sorry !
+      </h4>
       <h3>My Messages</h3>
       <div>
         {messages.map((message) => {

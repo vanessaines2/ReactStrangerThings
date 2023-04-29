@@ -98,9 +98,9 @@ body {
 .post {
   display: flex;
   flex-direction: column;
-
   width: 300px;
   margin: 20px;
+  justify-content: center;
   padding: 20px;
   border: 1px solid #ddd;
   border-radius: 10px;
@@ -152,7 +152,7 @@ body {
 }
 .create-post {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   flex-wrap: wrap;
   align-items: center;
   margin: 20px;

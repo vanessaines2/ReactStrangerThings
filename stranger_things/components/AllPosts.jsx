@@ -34,7 +34,8 @@ export default function AllPosts() {
   });
 
   return (
-    <div className="create-post">
+    <div className="searchInput">
+      {" "}
       <input
         // id="search"
         type="text"
@@ -45,110 +46,112 @@ export default function AllPosts() {
           console.log(searchPost);
         }}
       />
-      {posts.length > 0 &&
-        !searchPost &&
-        posts.map((post) => {
-          return (
-            <div className="post" key={post._id}>
-              <h1 className="post-username">
-                Username: {post.author.username}
-              </h1>
-              <h2 className="post-title">Title: {post.title}</h2>
-              <p className="post-description">{post.description}</p>
-              <h5 className="post-price">Price: {post.price}</h5>
+      <div className="create-post">
+        {posts.length > 0 &&
+          !searchPost &&
+          posts.map((post) => {
+            return (
+              <div className="post" key={post._id}>
+                <h1 className="post-username">
+                  Username: {post.author.username}
+                </h1>
+                <h2 className="post-title">Title: {post.title}</h2>
+                <p className="post-description">{post.description}</p>
+                <h5 className="post-price">Price: {post.price}</h5>
 
-              {/* this will delete  only by author */}
-              {user._id === post.author._id && (
-                <button
-                  className="post-button"
-                  onClick={async (e) => {
-                    e.preventDefault();
-                    await deletePosts(token, post._id);
-                    console.log("I've been clicked");
-                    navigate("/posts");
-                  }}
-                >
-                  Delete Post
-                </button>
-              )}
-              {/* this will edit only if its made by u */}
-              {user._id === post.author._id && (
-                <button
-                  className="post-button"
-                  onClick={() => {
-                    navigate(`/posts/${post._id}`);
-                  }}
-                >
-                  {" "}
-                  Edit Post
-                </button>
-              )}
-              {/* only send a message if youre logged in */}
-              {token && (
-                <button
-                  className="post-button"
-                  onClick={() => {
-                    navigate(`/post/${post._id}/messages`);
-                  }}
-                >
-                  {" "}
-                  Message
-                </button>
-              )}
-            </div>
-          );
-        })}
-      {posts.length > 0 &&
-        searchPost &&
-        filteredPosts.map((post) => {
-          return (
-            <div className="post" key={post._id}>
-              <h1 className="post-username">
-                Username: {post.author.username}
-              </h1>
-              <h2 className="post-title">Title: {post.title}</h2>
-              <p className="post-description">{post.description}</p>
-              <h5 className="post-price">Price: {post.price}</h5>
+                {/* this will delete  only by author */}
+                {user._id === post.author._id && (
+                  <button
+                    className="post-button"
+                    onClick={async (e) => {
+                      e.preventDefault();
+                      await deletePosts(token, post._id);
+                      console.log("I've been clicked");
+                      navigate("/posts");
+                    }}
+                  >
+                    Delete Post
+                  </button>
+                )}
+                {/* this will edit only if its made by u */}
+                {user._id === post.author._id && (
+                  <button
+                    className="post-button"
+                    onClick={() => {
+                      navigate(`/posts/${post._id}`);
+                    }}
+                  >
+                    {" "}
+                    Edit Post
+                  </button>
+                )}
+                {/* only send a message if youre logged in */}
+                {token && (
+                  <button
+                    className="post-button"
+                    onClick={() => {
+                      navigate(`/post/${post._id}/messages`);
+                    }}
+                  >
+                    {" "}
+                    Message
+                  </button>
+                )}
+              </div>
+            );
+          })}
+        {posts.length > 0 &&
+          searchPost &&
+          filteredPosts.map((post) => {
+            return (
+              <div className="post" key={post._id}>
+                <h1 className="post-username">
+                  Username: {post.author.username}
+                </h1>
+                <h2 className="post-title">Title: {post.title}</h2>
+                <p className="post-description">{post.description}</p>
+                <h5 className="post-price">Price: {post.price}</h5>
 
-              {user._id === post.author._id && (
-                <button
-                  className="post-button"
-                  onClick={async (e) => {
-                    e.preventDefault();
-                    await deletePosts(token, post._id);
-                    console.log("I've been clicked");
-                  }}
-                >
-                  Delete Post
-                </button>
-              )}
+                {user._id === post.author._id && (
+                  <button
+                    className="post-button"
+                    onClick={async (e) => {
+                      e.preventDefault();
+                      await deletePosts(token, post._id);
+                      console.log("I've been clicked");
+                    }}
+                  >
+                    Delete Post
+                  </button>
+                )}
 
-              {user._id === post.author._id && (
-                <button
-                  className="post-button"
-                  onClick={() => {
-                    navigate(`/posts/${post._id}`);
-                  }}
-                >
-                  {" "}
-                  Edit Post
-                </button>
-              )}
+                {user._id === post.author._id && (
+                  <button
+                    className="post-button"
+                    onClick={() => {
+                      navigate(`/posts/${post._id}`);
+                    }}
+                  >
+                    {" "}
+                    Edit Post
+                  </button>
+                )}
 
-              {token && (
-                <button
-                  className="post-button"
-                  onClick={() => {
-                    navigate(`/post/${post._id}/messages`);
-                  }}
-                >
-                  {" "}
-                  Message
-                </button>
-              )}
-            </div>
-          );
-        })}
+                {token && (
+                  <button
+                    className="post-button"
+                    onClick={() => {
+                      navigate(`/post/${post._id}/messages`);
+                    }}
+                  >
+                    {" "}
+                    Message
+                  </button>
+                )}
+              </div>
+            );
+          })}
+      </div>
     </div>
   );
 }
