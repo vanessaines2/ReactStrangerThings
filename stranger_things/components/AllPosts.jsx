@@ -40,7 +40,7 @@ export default function AllPosts() {
         // id="search"
         type="text"
         className="searchInput"
-        placeholder="search posts..."
+        placeholder="Search posts titles..."
         onChange={(e) => {
           setSearchPost(e.target.value.toLowerCase());
           console.log(searchPost);
@@ -66,8 +66,12 @@ export default function AllPosts() {
                     onClick={async (e) => {
                       e.preventDefault();
                       await deletePosts(token, post._id);
-                      console.log("I've been clicked");
-                      navigate("/posts");
+                      const response = await fetchAllPost();
+                      if (response.success) {
+                        setPosts(response.data.posts);
+                      } else {
+                        setError(response.error);
+                      }
                     }}
                   >
                     Delete Post

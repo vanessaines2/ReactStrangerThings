@@ -20,7 +20,7 @@ export default function Message() {
 
   return (
     <div>
-      <form className="create-post" onSubmit={handleSubmit}>
+      <form className="message-form" onSubmit={handleSubmit}>
         Send Message
         <input
           value={message}
