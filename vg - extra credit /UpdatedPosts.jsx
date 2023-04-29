@@ -1,14 +1,16 @@
-import { updatePosts } from "../stranger_things/API/api";
+import { updatePost } from "../stranger_things/API/api";
 import { useState } from "react";
 import { useAuth } from "../stranger_things/hooks/useAuth";
 import { useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export function UpdatedPost() {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [price, setPrice] = useState("");
   const { postId } = useParams();
-  const { token } = useAuth;
+  const { token } = useAuth();
+  const navigate = useNavigate();
 
   return (
     <div className="create-post">
@@ -17,7 +19,8 @@ export function UpdatedPost() {
         className="create-post-form"
         onSubmit={async (e) => {
           e.preventDefault();
-          await updatePosts(token, postId, title, description, price);
+          await updatePost(token, postId, title, description, price);
+          navigate("/posts");
         }}
       >
         <input

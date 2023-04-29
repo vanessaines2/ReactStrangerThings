@@ -1,12 +1,14 @@
 import { useState } from "react";
-
+import { useNavigate } from "react-router-dom";
 import { registerUser } from "../API/registerUser";
 import { useAuth } from "../hooks/useAuth";
 import { Link } from "react-router-dom";
+
 export default function RegisterForm() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const { setToken, user } = useAuth();
+  const navigate = useNavigate();
   async function handleSubmit(e) {
     e.preventDefault();
     try {
@@ -14,6 +16,7 @@ export default function RegisterForm() {
       console.log("Result in Component: ", result);
       setToken(result.data.token);
       localStorage.setItem("token", result.data.token);
+      navigate("/users/me");
     } catch (error) {
       console.log(error);
     }

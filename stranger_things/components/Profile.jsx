@@ -24,9 +24,9 @@ function Profile() {
         {messages.map((message) => {
           return (
             <div className="messages" key={message._id}>
-              <h3>username: {message.fromUser.username}</h3>
-              <h4>message : {message.content}</h4>
-              <h5> posts: {message.post.title}</h5>
+              <h3>From: {message.fromUser.username}</h3>
+              <h4>Message : {message.content}</h4>
+              <h5> Posts: {message.post.title}</h5>
             </div>
           );
         })}

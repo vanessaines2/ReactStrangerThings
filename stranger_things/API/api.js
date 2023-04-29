@@ -49,7 +49,7 @@ export async function createPost(title, description, price, token) {
     console.log(error);
   }
 }
-export async function updatePosts(token, postId, title, description, price) {
+export async function updatePost(token, postId, title, description, price) {
   try {
     const response = await fetch(`${BASE_URL}/posts/${postId}`, {
       method: "PATCH",
@@ -66,6 +66,7 @@ export async function updatePosts(token, postId, title, description, price) {
       }),
     });
     const result = await response.json();
+    return result;
   } catch (error) {
     console.log("error in updated posts", error);
   }

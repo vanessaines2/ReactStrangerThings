@@ -7,24 +7,24 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #008cba;
+  background-color: #ba001f9c;
   padding: 50px;
   gap: 30px;
 }
 
 body {
-  background-color: #f2f2f2;
+  background-color: #9f30ee40;
 }
 
 .head h2 {
   margin-right: auto;
-  color: white;
+  color: rgb(108, 5, 5);
 }
 .linkz {
   display: flex;
   gap: 50px;
   text-decoration: none;
-  color: white;
+  color: rgb(70, 0, 0);
 }
 .links {
   display: flex;
@@ -90,19 +90,15 @@ body {
   background-color: #555;
 }
 .allPosts {
-  display: flex;
-  flex-direction: column;
+  display: grid;
   align-content: space-around;
   gap: 15px;
 }
 
-.allPosts {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
 .post {
+  display: flex;
+  flex-direction: column;
+
   width: 300px;
   margin: 20px;
   padding: 20px;
@@ -144,16 +140,29 @@ body {
 .post-button:hover {
   background-color: #e53935;
 }
-
+.searchInput {
+  display: flex;
+  flex-direction: column;
+  margin: 15px;
+}
+#search {
+  display: flex;
+  margin: 10px;
+  align-items: center;
+}
 .create-post {
   display: flex;
   flex-direction: column;
+  flex-wrap: wrap;
   align-items: center;
   margin: 20px;
 }
 
 .create-post-title {
   font-size: 32px;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
   margin-bottom: 20px;
 }
 
@@ -199,7 +208,22 @@ body {
 .messages {
   display: flex;
   flex-direction: column;
-  border: 1px solid red;
-  gap: 10px;
-  align-content: stretch;
+  border: 1px solid rgb(133, 0, 0);
+  gap: 22px;
+  margin: 40px;
+  padding: 10px;
+  border-radius: 30px;
+}
+.message-form {
+  display: flex;
+  font-size: 50px;
+  flex-direction: column;
+  align-items: center;
+}
+#message {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+  margin: 30px;
 }

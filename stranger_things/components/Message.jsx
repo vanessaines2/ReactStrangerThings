@@ -17,10 +17,11 @@ export default function Message() {
       console.log(error);
     }
   }
+
   return (
     <div>
-      <form onSubmit={handleSubmit}>
-        Message
+      <form className="create-post" onSubmit={handleSubmit}>
+        Send Message
         <input
           value={message}
           onChange={(e) => {
@@ -28,9 +29,11 @@ export default function Message() {
           }}
           type="text"
           id="message"
-          placeholder="Title"
+          placeholder="Type in a message..."
         />
-        <button type="submit">Send Message !</button>
+        <button className="create-post-button" type="submit">
+          Send a message!
+        </button>
       </form>
     </div>
   );
