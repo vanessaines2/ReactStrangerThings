@@ -7,6 +7,7 @@ export default function Message() {
   const { token } = useAuth();
   const { postId } = useParams();
   const [message, setMessage] = useState("");
+
   async function handleSubmit(e) {
     e.preventDefault();
     try {
@@ -19,9 +20,9 @@ export default function Message() {
   }
 
   return (
-    <div>
-      <form className="message-form" onSubmit={handleSubmit}>
-        Send Message
+    <div className="create-post">
+      <h1 className="create-post-title"> Send a message</h1>
+      <form className="create-post-form" onSubmit={handleSubmit}>
         <input
           value={message}
           onChange={(e) => {

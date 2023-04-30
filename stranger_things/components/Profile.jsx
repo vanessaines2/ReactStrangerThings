@@ -17,12 +17,9 @@ function Profile() {
   }
 
   return (
-    <div>
+    <div className="profilePage">
       <h1>{token && `Welcome, ${user.username}`}</h1>
-      <h4>
-        - pls note you may have to refresh when you login & when you delete,
-        sorry !
-      </h4>
+      <h4>- pls note you may have to refresh when you login sorry !</h4>
       <h3>My Messages</h3>
       <div>
         {messages.map((message) => {
@@ -37,12 +34,13 @@ function Profile() {
       </div>
       <div>
         <br></br>
-        <h3> My Posts</h3>
       </div>
 
-      <button className="create-post-button" onClick={LogOut}>
-        Log Out
-      </button>
+      <footer>
+        <button className="logOutBtn" onClick={LogOut}>
+          Log Out
+        </button>{" "}
+      </footer>
     </div>
   );
 }

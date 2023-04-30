@@ -9,6 +9,7 @@ export default function RegisterForm() {
   const [password, setPassword] = useState("");
   const { setToken, user } = useAuth();
   const navigate = useNavigate();
+
   async function handleSubmit(e) {
     e.preventDefault();
     try {

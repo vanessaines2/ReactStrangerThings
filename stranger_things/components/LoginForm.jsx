@@ -1,14 +1,16 @@
 import { useState } from "react";
 import RegisterForm from "./RegisterForm";
-import { loginUser } from "../API/registerUser";
+import { fetchMe, loginUser } from "../API/registerUser";
 import { Link, useNavigate } from "react-router-dom";
-
+import { useAuth } from "../hooks/useAuth";
 //this could probably be also register
 
 export function LoginForm() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [token, setToken] = useState("");
+
+  const [error, setError] = useState("");
   const navigate = useNavigate();
 
   async function handleSubmit(e) {

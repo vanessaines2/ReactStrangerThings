@@ -14,7 +14,7 @@ export function UpdatedPost() {
 
   return (
     <div className="create-post">
-      <h1> Edit Post</h1>
+      <h1 className="create-post-title"> Edit Post</h1>
       <form
         className="create-post-form"
         onSubmit={async (e) => {
@@ -23,20 +23,21 @@ export function UpdatedPost() {
           navigate("/posts");
         }}
       >
+        <label className="create-post-label">Edit Title</label>
         <input
           className="create-post-input"
           type="text"
           value={title}
           onChange={(event) => setTitle(event.target.value)}
         />
-        <label className="create-post-label">Description:</label>
+        <label className="create-post-label">Edit Description:</label>
         <input
           className="create-post-input"
           type="text"
           value={description}
           onChange={(event) => setDescription(event.target.value)}
         />
-        <label className="create-post-label">Price:</label>
+        <label className="create-post-label">Edit Price:</label>
         <input
           className="create-post-input"
           type="text"

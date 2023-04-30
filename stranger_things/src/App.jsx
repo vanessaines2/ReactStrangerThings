@@ -18,7 +18,7 @@ function App() {
     <div className="app">
       <header className="head">
         <h2>STRANGER THINGS</h2>
-        <h3 className="linkz">
+        <h3 className="links">
           <Link to="/"> HOME</Link>
           <Link to="/posts">POSTS </Link>
         </h3>

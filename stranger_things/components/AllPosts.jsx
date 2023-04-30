@@ -34,7 +34,7 @@ export default function AllPosts() {
   });
 
   return (
-    <div className="searchInput">
+    <div>
       {" "}
       <input
         // id="search"
