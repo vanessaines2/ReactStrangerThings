@@ -155,10 +155,11 @@ body {
 
 .create-post-title {
   display: flex;
-
+  flex-direction: column;
+  flex-wrap: wrap;
   font-size: 32px;
   text-align: center;
-  flex-direction: column;
+
   margin-bottom: 20px;
 }
 
