@@ -19,8 +19,12 @@ function Profile() {
   return (
     <div className="profilePage">
       <h1>{token && `Welcome, ${user.username}`}</h1>
-      <h4>- pls note you may have to refresh when you login sorry !</h4>
-      <h3>My Messages</h3>
+      <br></br>
+      <h2 style={{}}>
+        - pls note you may have to refresh when you login, sorry !
+      </h2>
+      <br></br>
+      <h1>All Messages</h1>
       <div>
         {messages.map((message) => {
           return (

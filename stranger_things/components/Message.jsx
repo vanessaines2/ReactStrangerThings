@@ -21,7 +21,8 @@ export default function Message() {
 
   return (
     <div className="create-post">
-      <h1 className="create-post-title"> Send a message</h1>
+      {/* <h1 className="create-post-title"> Send a message</h1> */}
+      <h1 className="message-title"> Send a message !</h1>
       <form className="create-post-form" onSubmit={handleSubmit}>
         <input
           value={message}

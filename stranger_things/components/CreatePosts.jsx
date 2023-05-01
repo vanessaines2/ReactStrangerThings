@@ -14,7 +14,7 @@ export default function CreatePost() {
 
   return (
     <div className="create-post">
-      <h1 className="create-post-title">Create Posts</h1>
+      <h1 className="title">Create Posts</h1>
       <form
         className="create-post-form"
         onSubmit={async (e) => {
