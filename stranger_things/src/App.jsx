@@ -8,7 +8,7 @@ import { useAuth } from "../hooks/useAuth";
 import CreatePost from "../components/CreatePosts";
 import Profile from "../components/Profile";
 import Message from "../components/Message";
-import { UpdatedPost } from "../../vg - extra credit /UpdatedPosts";
+import { UpdatedPost } from "../components/UpdatedPosts";
 
 function App() {
   const { token, user } = useAuth();
